@@ -188,7 +188,7 @@ given build type.
 +------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Command                                                          | Description                                                                                                                                             |
 +------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``-s``, ``--script <script>``                                    | |release| Run a script.                                                                                                                                 |
+| ``-s``, ``--script <script>``                                    | |release| Run a script. `<script>` must be a resource path relative to the project (`myscript.gd` will be interpreted as `res://myscript.gd`) or an aboslute filesystem path (for example on Windows `C:/tmp/myscript.gd`)                                                                                                                                 |
 +------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``--check-only``                                                 | |release| Only parse for errors and quit (use with ``--script``).                                                                                       |
 +------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -451,7 +451,8 @@ And how to run it:
     godot -s sayhello.gd
 
 If no ``project.godot`` exists at the path, current path is assumed to be the
-current working directory (unless ``--path`` is specified).
+current working directory (unless ``--path`` is specified). 
+Note that the script path will be interepreted as a resource path relative to the project, here `res://sayhello.gd`. You can also use an absolute filesystem path instead, which is useful if the script is not part of the project.
 
 The first line of ``sayhello.gd`` above is commonly referred to as
 a *shebang*. If the Godot binary is in your ``PATH`` as ``godot``,
